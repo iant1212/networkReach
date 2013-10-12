@@ -4,7 +4,7 @@ networkReach
 Requirements:
 > at least PostGIS 2.0, pgRouting 2.0
 
-This SQL function finds the network reach from a starting node for the input distance.
+This SQL function finds the network reach from a given node for the input distance.
 
 This SQL function returns all the edges associated with accessible nodes on the network within the input distance,
 and returns partial edges when the last node is not accessible but some part of the edge is within the accessible 

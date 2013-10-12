@@ -10,7 +10,8 @@ This SQL function returns all the edges associated with accessible nodes on the 
 and returns partial edges when the last node is not accessible but some part of the edge is within the accessible 
 distance.
 
-The function currently uses a table named 'streets', and the field for the distance value is named 'cost'.
+The function currently uses a table named 'streets', the field for the distance value is named 'cost', and the field
+for geometries is named 'the_geom'.
 
 There is a custom type that needs to be created for this to work.  The SQL for creating the custom type is commented
 out at the beginning of the networkReach.sql file.

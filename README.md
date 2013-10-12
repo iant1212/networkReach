@@ -2,8 +2,7 @@ networkReach
 ============
 
 Requirements:
-> PostGIS 2.0
-> pgRouting 2.0
+> at least PostGIS 2.0, pgRouting 2.0
 
 This SQL function finds the network reach from a starting node for the input distance.
 

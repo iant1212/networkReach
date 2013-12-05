@@ -51,7 +51,7 @@ $BODY$
     ON firstPath.id1 = et.source
     AND secondPath.id1 = et.target;';
 
-    EXECUTE format('
+    EXECUTE '
     INSERT INTO tempNetwork(id, geom, factor)
     SELECT allNodes.id, st_line_substring(allNodes.geom, 0.0, (' || format('%s', networkReachDistance) || '-allNodes.distance)/allNodes.Cost), (' || format('%s', networkReachDistance) || '-allNodes.distance)/allNodes.Cost AS factor
     FROM
@@ -66,9 +66,9 @@ $BODY$
      ) allNodes
     FULL OUTER JOIN tempNetwork
     ON tempNetwork.id = allNodes.id
-    WHERE tempNetwork.id IS NULL;', edgeTable);
+    WHERE tempNetwork.id IS NULL;';
 
-    EXECUTE format('
+    EXECUTE '
     INSERT INTO tempNetwork(id, geom, factor)
     SELECT allNodes.id, st_line_substring(allNodes.geom,1-((' || format('%s', networkReachDistance) || '-allNodes.distance)/allNodes.Cost),1), (' || format('%s', networkReachDistance) || '-allNodes.distance)/allNodes.Cost AS factor
     FROM
@@ -83,7 +83,7 @@ $BODY$
       ) allNodes
     FULL OUTER JOIN tempNetwork
     ON tempNetwork.id = allNodes.id
-    WHERE tempNetwork.id IS NULL;', edgeTable);
+    WHERE tempNetwork.id IS NULL;';
 
   
     RETURN QUERY SELECT t.id, t.geom, t.factor FROM tempNetwork t;

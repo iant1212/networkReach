@@ -11,14 +11,16 @@ Table
 /*
 networkReach parameters:
 1: The edge table
-2: Id of the starting point in the vertices_tmp table
-3: Network reach distance (in units of the edge table cost column)
+2: The cost field in the edgeTable to base calculations on 
+3: The geometry field in the edgeTable
+4: Id of the starting point in the vertices_tmp table
+5: Network reach distance (in units of the edge table cost column)
 */
 CREATE OR REPLACE FUNCTION parkering_routing.networkReachPartial(edgeTable regclass, costfield character varying, geomfield character varying, startnode integer, networkReachDistance double precision)
 RETURNS TABLE(id integer, geom geometry, factor double precision) AS
 $BODY$
   DECLARE
-	-- nothing to declare
+	-- nothing to declare here, we now return a table instead of declaring types
   BEGIN
 
     -- Create a temporary table for the network whilst we process it

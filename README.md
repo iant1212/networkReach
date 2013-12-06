@@ -14,6 +14,7 @@ The function takes as arguments the edge table name, the geometry field, the cos
 Also the edge table needs to have a unique id field named 'id'.
 
 The function no longer uses a custom type, but declares the table type returned.
+
 ============
 Things to do
 =========================

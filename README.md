@@ -8,7 +8,7 @@ This SQL function finds the network reach from a given node for the input distan
 
 This SQL function returns all the edges associated with accessible nodes on the network within the input distance,
 and returns partial edges when the last node is not accessible but some part of the edge is within the accessible 
-distance.
+distance. The function returns for each edge the factor (how much of the original edge's geometry is returned) for said edge  (based on edge length).
 
 The function takes as arguments the edge table name, the geometry field, the cost, the startnode, and the maximum cost in the network (calculated on said cost field)
 Also the edge table needs to have a unique id field named 'id'.
